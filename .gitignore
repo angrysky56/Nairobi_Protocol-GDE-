@@ -1,0 +1,13 @@
+.pixi/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db-journal
+*.db-wal
+*.db-shm
+bin/logic_engine_portable
+bin/logic_engine_portable.exe
+bin/logic_engine_portable.o
+bin/logic_engine_portable.s
+

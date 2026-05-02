@@ -1,0 +1,20 @@
+[workspace]
+name = "geometric-core"
+version = "0.1.0"
+description = "Cold CPU architecture for the Geometric Determinism Engine"
+channels = ["https://conda.modular.com/max-nightly/", "conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = ">=3.12,<3.14"
+mojo = "*"
+networkx = ">=3.3,<4"
+sqlite = ">=3.45,<4"
+pip = "*"
+
+[tasks]
+seed-ref = "python tests/phonological_seed_reference.py"
+bench-refinery = "python tests/integration_bench.py"
+seed-mojo = "mojo -I src/1_gateway tests/phonological_seed.mojo"
+bench-mojo = "mojo -I src/1_gateway -I src/2_execution tests/integration_bench.mojo"
+build-portable = "bash build_portable.sh"
