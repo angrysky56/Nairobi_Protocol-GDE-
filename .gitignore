@@ -11,3 +11,8 @@ bin/logic_engine_portable.exe
 bin/logic_engine_portable.o
 bin/logic_engine_portable.s
 
+.bin/
+.vscode/
+.tests/*.bin
+*.bin.idx
+*.bin
