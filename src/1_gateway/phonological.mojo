@@ -1,20 +1,14 @@
-from math import sqrt, cos
+from std.math import sqrt, cos
 
-alias SIGNAL_LEN = 32
-alias HASH_DIM = 24
-alias PI = 3.141592653589793
+comptime SIGNAL_LEN = 32
+comptime HASH_DIM = 24
+comptime PI = 3.141592653589793
 
 struct HashVector(Copyable, Movable):
     var data: SIMD[DType.float64, 24]
 
     def __init__(out self):
         self.data = SIMD[DType.float64, 24](0)
-
-    def __copyinit__(out self, existing: Self):
-        self.data = existing.data
-
-    def __moveinit__(out self, owned existing: Self):
-        self.data = existing.data
 
     def distance(self, other: HashVector) -> Float64:
         var diff = self.data - other.data
@@ -36,7 +30,7 @@ def universal_geometric_hash(text: String) -> HashVector:
         for n in range(SIGNAL_LEN):
             sum_val += signal[n] * cos(PI * Float64(k) * (Float64(n) + 0.5) / Float64(SIGNAL_LEN))
         hash_obj.data[k] = scale0 * sum_val
-    return hash_obj
+    return hash_obj^
 
 def compare(left: String, right: String) -> Float64:
     var h1 = universal_geometric_hash(left)

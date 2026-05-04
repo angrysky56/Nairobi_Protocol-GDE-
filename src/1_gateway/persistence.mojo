@@ -1,5 +1,5 @@
 from phonological import HashVector
-from os import stat
+from std.os import stat
 
 struct GatewayStore:
     var vault_path: String
@@ -21,17 +21,14 @@ struct GatewayStore:
                 f.write(String(vector.data[i]))
                 if i < 23:
                     f.write(",")
-            f.write("
-")
+            f.write(chr(10))
         with open(self.index_path, "a") as idx:
-            idx.write(word + ":" + String(offset) + "
-")
+            idx.write(word + ":" + String(offset) + chr(10))
 
     def load_vector_indexed(self, target_word: String) raises -> HashVector:
         var offset = -1
         with open(self.index_path, "r") as idx:
-            var lines = idx.read().split("
-")
+            var lines = idx.read().split(chr(10))
             for i in range(len(lines)):
                 var line = lines[i]
                 if not line:
@@ -45,11 +42,10 @@ struct GatewayStore:
         with open(self.vault_path, "r") as f:
             _ = f.seek(UInt64(offset))
             var chunk = f.read(1024)
-            var target_line = chunk.split("
-")[0]
+            var target_line = chunk.split(chr(10))[0]
             var parts = target_line.split(":")
             var vec_data = parts[1].split(",")
             var vector = HashVector()
             for j in range(24):
                 vector.data[j] = Float64(vec_data[j])
-            return vector
+            return vector^

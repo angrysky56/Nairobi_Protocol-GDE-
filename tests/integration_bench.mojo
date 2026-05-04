@@ -1,15 +1,14 @@
 from phonological import compare
 
-
-fn main():
-    let pairs = [
-        ("Apple", "Apples"),
-        ("Apple", "Orbit"),
-        ("Neural", "Logic"),
-        ("Sensor", "Sensors"),
-    ]
+def main():
+    var pairs = List[Tuple[String, String]]()
+    pairs.append(("Apple", "Apples"))
+    pairs.append(("Apple", "Orbit"))
+    pairs.append(("Neural", "Logic"))
+    pairs.append(("Sensor", "Sensors"))
 
     print("Integration benchmark harness")
-    for pair in pairs:
-        print(pair[0], pair[1], compare(pair[0], pair[1]))
-
+    for i in range(len(pairs)):
+        var a = pairs[i][0]
+        var b = pairs[i][1]
+        print(a, b, compare(a, b))

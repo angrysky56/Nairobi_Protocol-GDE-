@@ -20,6 +20,6 @@ struct AtlasManager:
         self.open_pages += 1
         return AtlasPage(offset=offset, length=length)
 
-    def release_subgraph(mut self, _: AtlasPage):
+    def release_subgraph(mut self, page: AtlasPage):
         if self.open_pages > 0:
             self.open_pages -= 1
