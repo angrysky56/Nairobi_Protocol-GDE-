@@ -1,21 +1,25 @@
 from phonological import compare
 
-def main():
+def main() raises:
     var word_a = String("Quantum")
     var word_b = String("Symmetry")
-    
-    # Calculate distance
+
     var dist = compare(word_a, word_b)
-    
-    print("--- Geometric Engine Verification ---")
-    print("Comparing: 'Quantum' vs 'Symmetry'")
-    print("Distance Result:", dist)
-    
-    # The "Gold Standard" from your Desktop
-    var desktop_baseline = 64.19382644539132
-    
-    if dist == desktop_baseline:
-        print("STATUS: VERIFIED (Exact Match)")
+
+    print("--- GDE Cross-Hardware Consistency Check ---")
+    print("Comparing: Quantum vs Symmetry")
+    print("Distance Result: ", dist)
+
+    # Tolerance-based check instead of exact float match
+    var desktop_baseline = Float64(64.19382644539132)
+    var tolerance = Float64(0.0001)
+    var diff = dist - desktop_baseline
+    if diff < 0:
+        diff = -diff
+
+    if diff < tolerance:
+        print("STATUS: VERIFIED — within tolerance")
     else:
         print("STATUS: VARIANCE DETECTED")
-        print("Difference:", dist - desktop_baseline)
+        print("Difference: ", diff)
+        print("Tolerance:  ", tolerance)
