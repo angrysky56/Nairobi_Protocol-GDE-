@@ -1,5 +1,10 @@
 # Nairobi Protocol — Geometric Determinism Engine (GDE)
 
+> **DOI:** https://doi.org/10.5281/zenodo.20036883
+> **Author:** Tom Kimingi — RRD Kenya
+> **License:** MIT
+
+
 A deterministic retrieval engine that replaces probabilistic search with absolute coordinate mapping. Built in Mojo for direct hardware-level memory control. Developed in Nairobi, Kenya by RRD Kenya.
 
 ---
