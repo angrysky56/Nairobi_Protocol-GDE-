@@ -16,3 +16,6 @@ bin/logic_engine_portable.s
 .tests/*.bin
 *.bin.idx
 *.bin
+data/
+*.json
+data/

@@ -72,11 +72,11 @@ def generate_entries():
 
     # If under 10000, add numeric variants
     idx = 0
-    while len(entry_list) < 10000:
+    while len(entry_list) < 1000000:
         entry_list.append(BASE_WORDS[idx % len(BASE_WORDS)] + str(idx))
         idx += 1
 
-    return entry_list[:10000]
+    return entry_list[:1000000]
 
 def char_vector(word, dims=24):
     """Character-level feature vector — same dimensionality as GDE HashVector."""
@@ -97,7 +97,7 @@ def char_vector(word, dims=24):
     return vec
 
 if __name__ == "__main__":
-    print("Generating 10,000 knowledge base entries...")
+    print("Generating 1,000,000 knowledge base entries...")
     entries = generate_entries()
     print(f"Generated: {len(entries)} entries")
 
