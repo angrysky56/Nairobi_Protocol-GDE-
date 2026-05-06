@@ -19,3 +19,10 @@ bin/logic_engine_portable.s
 data/
 *.json
 data/
+data/
+*.json
+*.txt
+*.db
+*.zip
+*.bin
+*.bin.idx
