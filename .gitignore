@@ -1,28 +1,31 @@
+# Build artifacts
 .pixi/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Binary files — never commit these
+*.bin
+*.bin.idx
+*.db
 *.db-journal
 *.db-wal
 *.db-shm
+*.zip
+
+# Generated data — build locally
+data/
+*.json
+*.txt
+
+# Compiled outputs
 bin/logic_engine_portable
 bin/logic_engine_portable.exe
 bin/logic_engine_portable.o
 bin/logic_engine_portable.s
 
+# Directories
 .bin/
 .vscode/
-.tests/*.bin
-*.bin.idx
-*.bin
-data/
-*.json
-data/
-data/
-*.json
-*.txt
-*.db
-*.zip
-*.bin
-*.bin.idx
+.tests/
