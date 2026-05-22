@@ -29,3 +29,6 @@ bin/logic_engine_portable.s
 .bin/
 .vscode/
 .tests/
+
+.venv/
+.env
